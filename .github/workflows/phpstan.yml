@@ -58,6 +58,7 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           extensions: mbstring, pdo, pdo_sqlite
+          ini-values: memory_limit=-1
           coverage: none
 
       - name: Install dependencies
