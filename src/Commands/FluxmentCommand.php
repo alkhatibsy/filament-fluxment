@@ -1,12 +1,14 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+declare(strict_types=1);
+
+namespace Syriable\Filament\Plugins\Fluxment\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class FluxmentCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'filament-fluxment';
 
     public $description = 'My command';
 
