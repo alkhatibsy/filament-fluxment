@@ -1,5 +1,6 @@
 **/.DS_Store
 .idea
+auth.json
 .phpunit.result.cache
 .phpunit.cache
 .vscode

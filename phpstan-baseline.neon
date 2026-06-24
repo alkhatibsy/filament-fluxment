@@ -1,0 +1,6 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Property Syriable\\Filament\\Plugins\\Fluxment\\Flux\\Forms\\Components\\Radio\:\:\$view \(view\-string\) does not accept default value of type string\.$#'
+			count: 1
+			path: src/Flux/Forms/Components/Radio.php
