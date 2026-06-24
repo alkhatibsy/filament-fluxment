@@ -13,7 +13,7 @@ class Radio extends BaseRadio
 
     protected string $view = 'filament-fluxment::flux.forms.components.radio';
 
-    protected string | Closure | null $variant = null;
+    protected string|Closure|null $variant = null;
 
     protected bool $indicator = true;
 

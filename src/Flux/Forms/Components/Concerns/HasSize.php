@@ -6,7 +6,7 @@ use Closure;
 
 trait HasSize
 {
-    protected string | Closure | null $size = null;
+    protected string|Closure|null $size = null;
 
     public function size(string $size): static
     {

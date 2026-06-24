@@ -48,7 +48,7 @@ class FluxmentServiceProvider extends PackageServiceProvider
     {
         // Handle Stubs
         if (app()->runningInConsole()) {
-            foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
+            foreach (app(Filesystem::class)->files(__DIR__.'/../stubs/') as $file) {
                 $this->publishes([
                     $file->getRealPath() => base_path("stubs/filament-fluxment/{$file->getFilename()}"),
                 ], 'filament-fluxment-stubs');
@@ -59,7 +59,7 @@ class FluxmentServiceProvider extends PackageServiceProvider
         Testable::mixin(new TestsFluxment);
 
         FilamentAsset::register([
-            Js::make('filament-fluxment', __DIR__ . '/../resources/js/index.js'),
+            Js::make('filament-fluxment', __DIR__.'/../resources/js/index.js'),
         ]);
     }
 }

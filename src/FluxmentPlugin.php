@@ -18,7 +18,7 @@ class FluxmentPlugin implements Plugin
     public function register(Panel $panel): void
     {
         $panel
-            ->discoverPages(in: __DIR__ . '/../resources/pages', for: 'Syriable\\Filament\\Plugins\\Fluxment\\Pages');
+            ->discoverPages(in: __DIR__.'/../resources/pages', for: 'Syriable\\Filament\\Plugins\\Fluxment\\Pages');
     }
 
     public function boot(Panel $panel): void
