@@ -52,11 +52,59 @@ return [
 ];
 ```
 
-## Usage
+## Components
+
+### Radio
+
+A drop-in replacement for Filament's native `Radio` form field that renders with [Flux UI](https://fluxui.dev)'s `<flux:radio.group>`. It extends `Filament\Forms\Components\Radio`, so every method you already know (`options()`, `descriptions()`, `default()`, `disableOptionWhen()`, validation, etc.) keeps working, while adding Flux-specific styling options.
 
 ```php
-$fluxment = new Syriable\Filament\Plugins\Fluxment();
-echo $fluxment->echoPhrase('Hello, Syriable\Filament\Plugins!');
+use Syriable\Filament\Plugins\Fluxment\Flux\Forms\Components\Radio;
+
+Radio::make('status')
+    ->label('Status')
+    ->options([
+        'draft' => 'Draft',
+        'published' => 'Published',
+        'archived' => 'Archived',
+    ])
+    ->descriptions([
+        'draft' => 'Only visible to you.',
+        'published' => 'Visible to everyone.',
+    ])
+    ->icons([
+        'draft' => 'pencil-square',
+        'published' => 'globe-alt',
+        'archived' => 'archive-box',
+    ])
+    ->variant('segmented')
+    ->size('sm')
+    ->indicator(false)
+    ->default('draft');
+```
+
+#### Available methods
+
+In addition to all inherited `Radio` methods, the following are available:
+
+| Method | Type | Default | Description |
+| --- | --- | --- | --- |
+| `variant(string $variant)` | `string` | `default` | The Flux radio group variant, e.g. `default`, `segmented`, or `cards`. Accepts a closure. |
+| `size(string $size)` | `string` | `null` | The Flux control size, e.g. `sm` or `base`. Accepts a closure. |
+| `indicator(bool $indicator)` | `bool` | `true` | Whether to render the selection indicator. Set to `false` for a cleaner look with the `segmented`/`cards` variants. |
+| `icons(array $icons)` | `array` | `[]` | Per-option icons, keyed by option value (provided by Filament's `HasIcons`). |
+
+> [!NOTE]
+> `variant` and `size` values are passed straight through to Flux. The variants available to you (such as `segmented` and `cards`) depend on your Flux edition — see the [Flux radio documentation](https://fluxui.dev/components/radio) for the full list.
+
+## Usage
+
+Register the plugin on your Filament panel to wire up Flux's appearance and scripts:
+
+```php
+use Syriable\Filament\Plugins\Fluxment\FluxmentPlugin;
+
+$panel->plugin(FluxmentPlugin::make());
 ```
 
 ## Testing
