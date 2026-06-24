@@ -30,6 +30,9 @@ jobs:
         with:
           php-version: 8.4
 
+      - name: Configure Flux Pro credentials
+        run: composer config http-basic.composer.fluxui.dev "${{ secrets.FLUX_USERNAME }}" "${{ secrets.FLUX_LICENSE_KEY }}"
+
       - name: Install dependencies
         run: composer install --no-interaction --no-scripts
 
