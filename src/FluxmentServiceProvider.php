@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Syriable\Filament\Plugins\Fluxment;
 
+use Filament\Support\Assets\Js;
+use Filament\Support\Facades\FilamentAsset;
 use Illuminate\Filesystem\Filesystem;
 use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Package;
@@ -55,5 +57,9 @@ class FluxmentServiceProvider extends PackageServiceProvider
 
         // Testing
         Testable::mixin(new TestsFluxment);
+
+        FilamentAsset::register([
+            Js::make('filament-fluxment', __DIR__ . '/../resources/js/index.js'),
+        ]);
     }
 }
